@@ -1,5 +1,6 @@
 const User = require('./User');
 const Post = require('./Post');
+const Vote = require('./Vote');
 
 
 //create associations 
@@ -11,5 +12,16 @@ Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
+User.belongsToMany(Post, {
+    through: Vote,
+    as: 'voted_posts',
+    foreignKey: 'user_id'
+});
 
-module.exports= {User,  Post};
+Post.belongsToMany(User, {
+    through: 'vote',
+    as: 'voted_posts',
+    foreignKey: 'post_id'
+})
+
+module.exports= {User,  Post, Vote};
