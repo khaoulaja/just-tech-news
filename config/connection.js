@@ -14,6 +14,7 @@ if (process.env.JAWSDB_URL) {
   });
 }
 
+module.exports = sequelize;
 // //import the sequelize constructor from the library
 
 // // create connection to our database, pass in your MySQL information for username and password
@@ -23,4 +24,3 @@ if (process.env.JAWSDB_URL) {
 //     port: 3306
 // });
 
-module.exports = sequelize;
